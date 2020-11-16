@@ -1,0 +1,94 @@
+---
+title: "Untitled"
+author: "Ava Batsel"
+date: "11/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(tibble)
+library(maps)
+library(ggpubr)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+# Introduction:
+
+  After careful consideration I have decided to analyze how different stressors affect a person’s level of stress, as well as how a person can lower their level of stress through certain activities. By doing this, I feel that I will be able to see the trend in the increase or decrease in stress levels around certain activities. Values increase or decrease due to a different level in stress. The analysis of this data can be important because it can be helpful in predicting how a person’s body will respond when exposed to a level of stress and viewing trends in the data. My dataset is called the Time Use and Stress dataset. I found the data on OpenICPSR.This dataset contains data collected from University of Paderborn.The survey was conducted in June 2015 and sent out among a probability sample of 10,000 students at a German university. “The survey about student’s time use and stress was set up of several question blocks in the following order: estimation of overall stress level, coping mechanisms with stress, perceived burden of different life conditions, time estimations of different domains for an average day and the previous day, perception of time strain in these domains.” The analysis of this data can be important because it can be helpful in predicting how a person’s body will respond when exposed to certain environments with different levels of stress.
+
+
+# Ethical Considerations:
+
+In terms of the ethical issues surrounding my project, stress is a touchy subject and honestly when people discern information it is important for it to be dealt with properly. I believe it is important to keep the information anonymous as well. 
+
+# Data Explanation and Exploration:
+
+I used the v1 value as my independent variable, this is a the basis of how stressed the person has been,  the other values are my dependent variables. This way I can study how the body’s responses change due to different environments of stress. The data produced in this study is compelling, and I feel like I have a good amount of data to analyze. Currently, when I look at the csv files in this dataset, I see lots of data. These numbers are hard to comprehend, as well as the row and column labels. There is an explanation that is helpful. This is how I understand the data. Still, it is simply a set of numbers. The data qualifies as continuous data, out of the four data types that we learned in class. As I said, all I currently have is a few csv files filled with numbers. Data analysis is about bring numbers to life and finding purpose within them. I hope to find the hidden messages in this data. For my data visualization, I will be using different graphs. One graph that I plan on using is a scatter plot, due to the fact there are so many data points, with so much variety. If the two variables being compared are two continuous variables, a scatterplot is the answer. I will add a line of best fit and analyze this data for trends. I imagine having split graphs as well, with the two “dependent” variables. 
+ 
+ Write text that describes the data and what the visuals tell you about your data or decisions you will need to make for the analysis.
+```{r}
+##ggplot(Time_Use_and_Stress, aes(v1)) + geom_histogram() + labs(title = "Histogram of Average Amount of Stress over 4 weeks", x= "Average amount of stress over 4 weeks", y= "frequency")
+```
+```{r}
+##ggplot(data=Time_Use_and_Stress, aes(x=v8, y=v1)) +
+ ## geom_bar(stat="identity", width=0.5) +  labs ( x= "age", y="Average level of stress over 4 weeks") + labs (title= " age vs. Average level of stress over 4 weeks" )
+```
+
+# Statistical Analysis and Interpretation:
+
+Provide at least two distinct statistical models (for example; multivariate regression and/or t-test) that you interpret correctly and fully in the text. Report your results in a polished table (kable).
+
+```{r}
+##model <- lm(v1 ~ v5_6 + v4_6 , Time_Use_and_Stress )
+##summary(model)
+```
+```{r}
+
+## model <- lm(v1 ~ v4_3 + v4 , Time_Use_and_Stress )
+##summary(model)
+
+```
+This correlation is used to compare the average hours of work a week and the level of stress over the past four years. There is a strong correl
+
+```{r}
+## ggplot(Time_Use_and_Stress, aes(v5_6, v4_6)) +geom_point() + geom_smooth(method="lm", linetype=1) + labs ( x= "avg. hours of sleep yesterday", y="avg. hours 
+## per week of sleep") + labs (title= " hours of sleep yesterday vs. avg. hours per week of sleep" )
+```
+This graph compares average hours of sleep per week with average hours of sleep per day. The correlation discovered in the first t test is reflected in this scatterplot.
+
+```{r}
+ ##ggplot(Time_Use_and_Stress, aes(v4_3, v1)) +geom_point() + geom_line(method="lm", linetype=1) + labs (x="hours av. week: work", y= "Average level of stress ##over 4 years ") + labs (title= "hours av. week: work vs. Average level of stress over 4 years " )
+
+```
+This graph is used to compare the average hours of work a week and the level of stress over the past four years. There is a strong correlation between 
+
+```{r}
+##ggplot(Time_Use_and_Stress, aes(v7_8, v1)) +geom_point() + geom_smooth(method="lm", linetype=1) + labs ( x= "avg. hours of sleep yesterday", y="avg. hours ##per week of sleep") + labs (title= " hours of sleep yesterday vs. avg. hours per week of sleep" )
+
+```
+
+This graph is important to understand how the time with friends cna lower stress, I wanted to see if there was a positve correlation when comparing these items. 
+# Conclusions:
+
+The data shows that correlations do exist in the stress data. 
+ In terms of the risks associated with this data, one of the risks is the multiple variables, however having lots of data to grab from is not a bad idea, it simply will just make the topic broader if I do not have a clear question. Also, as we mentioned in class, bias is hard to eliminate. Some issues with this data might be how the participants were chosen for the study. Maybe they all had different reactions to stress due to past experiences, which could skew the average. Maybe they all reacted the exact same to stress and did not give enough variety. Saying this, I realize that this class is most certainly not about collection of data, but about analysis of data.
+source: https://www.stress.org/daily-life
+
+# Project Reflections:
+I had some difficulties in terms of discovering the data and working with it. Finding a solid dataset was a challenge for me and I felt that it is important for me that I understood what I was working with. I also had to make sure that I used proper variables, ones that were able to be compared with my dependent variable of average stress over four years. I found that scatter plots were very helpful.I was able to see correlations easliy with them. 
+I hope to also calculate mean and median, as well as other comparison devices such as z-score. This project should be interesting, I am looking forward to grasping the trends. Such as, if the level of stress increases by a certain interval, do the stress and time values increase by a consistent interval. Are the values correlated? Also, the scales are different, so I should probably do a certain percentage of the total. This way, the data is more consistent. 
+I discovered that a strong correlation does exist when comparing certain factors. One week is a good indicator of overall stress and stressors. If you look  at the data from one week, you can easily predict how data will look in weeks from that point. This is helpful for certain studies and predicting important variables.
